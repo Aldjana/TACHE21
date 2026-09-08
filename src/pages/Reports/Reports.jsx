@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../components/common/Button'
 import { Plus, FileText, Table } from 'lucide-react'
 import ReportsFilters from '../../features/reports/components/ReportsFilters'
@@ -11,15 +12,29 @@ import TransactionsTable from '../../features/reports/components/TransactionsTab
 import { kpiStats, analysisStats, paymentModes, transactions } from '../../features/reports/data/reportsData'
 
 const Reports = () => {
+  const navigate = useNavigate()
+
+  const handleExportPDF = () => {
+    console.log('Export PDF')
+  }
+
+  const handleExportExcel = () => {
+    console.log('Export Excel')
+  }
+
+  const handleNewReservation = () => {
+    navigate('/reservations/new')
+  }
+
   return (
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-900">Rapports</h1>
         <div className="flex items-center gap-2">
-          <Button variant="secondary" icon={FileText}>Exporter PDF</Button>
-          <Button variant="secondary" icon={Table}>Excel</Button>
-          <Button variant="primary" icon={Plus}>Nouvelle réservation</Button>
+          <Button variant="secondary" icon={FileText} onClick={handleExportPDF}>Exporter PDF</Button>
+          <Button variant="secondary" icon={Table} onClick={handleExportExcel}>Excel</Button>
+          <Button variant="primary" icon={Plus} onClick={handleNewReservation}>Nouvelle réservation</Button>
         </div>
       </div>
 

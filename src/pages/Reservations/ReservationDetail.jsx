@@ -18,10 +18,10 @@ const ReservationDetail = () => {
   const handleHeaderAction = (actionId) => {
     switch (actionId) {
       case 'edit':
-        console.log('Edit reservation')
+        navigate(`/reservations/${id}`)
         break
       case 'payment':
-        console.log('Register payment')
+        navigate('/payments')
         break
       case 'checkin':
         navigate(`/reservations/${id}/check-in`)
@@ -30,13 +30,13 @@ const ReservationDetail = () => {
         navigate(`/reservations/${id}/check-out`)
         break
       case 'invoice':
-        console.log('Generate invoice')
+        navigate('/invoices')
         break
       case 'cancel':
-        console.log('Cancel reservation')
+        navigate('/reservations')
         break
       case 'whatsapp':
-        console.log('Open WhatsApp')
+        window.open('https://wa.me/', '_blank')
         break
       default:
         break

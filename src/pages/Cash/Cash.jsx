@@ -8,6 +8,18 @@ import CashNotes from '../../features/caisse/components/CashNotes'
 import { cashStats, transactions, remainingBalance } from '../../features/caisse/data/caisseData'
 
 const Cash = () => {
+  const handleExportPDF = () => {
+    console.log('Export PDF')
+  }
+
+  const handleExportExcel = () => {
+    console.log('Export Excel')
+  }
+
+  const handleCloseCash = () => {
+    console.log('Close cash register')
+  }
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -17,9 +29,9 @@ const Cash = () => {
           <p className="text-sm text-gray-500 mt-1">Récapitulatif financier et gestion des flux de trésorerie en temps réel.</p>
         </div>
         <div className="flex gap-2">
-          <Button variant="secondary" icon={FileText}>Exporter PDF</Button>
-          <Button variant="secondary" icon={Table}>Exporter Excel</Button>
-          <Button variant="success" icon={Lock}>Clôturer la caisse</Button>
+          <Button variant="secondary" icon={FileText} onClick={handleExportPDF}>Exporter PDF</Button>
+          <Button variant="secondary" icon={Table} onClick={handleExportExcel}>Exporter Excel</Button>
+          <Button variant="success" icon={Lock} onClick={handleCloseCash}>Clôturer la caisse</Button>
         </div>
       </div>
 

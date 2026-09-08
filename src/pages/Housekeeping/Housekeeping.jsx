@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../components/common/Button'
 import { Plus } from 'lucide-react'
 import HousekeepingKPI from '../../features/housekeeping/components/HousekeepingKPI'
@@ -8,7 +9,12 @@ import AddTaskCard from '../../features/housekeeping/components/AddTaskCard'
 import { kpiStats, rooms } from '../../features/housekeeping/data/housekeepingData'
 
 const Housekeeping = () => {
+  const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState('to_clean')
+
+  const handleNewReservation = () => {
+    navigate('/reservations/new')
+  }
 
   return (
     <div className="space-y-6">
@@ -18,7 +24,7 @@ const Housekeeping = () => {
           <h1 className="text-2xl font-bold text-gray-900">Ménage</h1>
           <p className="text-sm text-gray-500 mt-1">Suivez les chambres à nettoyer et à préparer</p>
         </div>
-        <Button variant="primary" icon={Plus}>Nouvelle réservation</Button>
+        <Button variant="primary" icon={Plus} onClick={handleNewReservation}>Nouvelle réservation</Button>
       </div>
 
       {/* KPI Cards */}

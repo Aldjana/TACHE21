@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../components/common/Button'
 import { Filter, Plus } from 'lucide-react'
 import RoomStats from '../../features/rooms/components/RoomStats'
@@ -7,6 +8,16 @@ import RoomCard from '../../features/rooms/components/RoomCard'
 import { rooms } from '../../features/rooms/data/rooms'
 
 const Rooms = () => {
+  const navigate = useNavigate()
+
+  const handleAddRoom = () => {
+    console.log('Add room')
+  }
+
+  const handleAdvancedFilters = () => {
+    console.log('Advanced filters')
+  }
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -16,8 +27,8 @@ const Rooms = () => {
           <p className="text-sm text-gray-500 mt-1">Gérez les chambres, tarifs et statuts</p>
         </div>
         <div className="flex gap-2">
-          <Button variant="secondary" icon={Filter}>Filtres avancés</Button>
-          <Button variant="primary" icon={Plus}>Ajouter une chambre</Button>
+          <Button variant="secondary" icon={Filter} onClick={handleAdvancedFilters}>Filtres avancés</Button>
+          <Button variant="primary" icon={Plus} onClick={handleAddRoom}>Ajouter une chambre</Button>
         </div>
       </div>
 

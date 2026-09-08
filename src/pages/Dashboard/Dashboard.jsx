@@ -27,16 +27,16 @@ const Dashboard = () => {
         handleNewReservation()
         break
       case 2:
-        // Navigate to payment registration
+        navigate('/payments')
         break
       case 3:
-        // Navigate to check-in
+        navigate('/reservations')
         break
       case 4:
-        // Navigate to check-out
+        navigate('/reservations')
         break
       case 5:
-        // Navigate to cash register
+        navigate('/cash')
         break
       default:
         break
@@ -44,25 +44,23 @@ const Dashboard = () => {
   }
 
   const handleCheckIn = (arrivalId) => {
-    // Handle check-in logic
-    console.log('Check-in for arrival:', arrivalId)
+    navigate(`/reservations/${arrivalId}/check-in`)
   }
 
   const handleCheckOut = (departureId) => {
-    // Handle check-out logic
-    console.log('Check-out for departure:', departureId)
+    navigate(`/reservations/${departureId}/check-out`)
   }
 
   const handleViewAllArrivals = () => {
-    // Navigate to all arrivals
+    navigate('/reservations')
   }
 
   const handleViewAllDepartures = () => {
-    // Navigate to all departures
+    navigate('/reservations')
   }
 
   const handleViewFinancialDetails = () => {
-    // Navigate to financial details
+    navigate('/payments')
   }
 
   return (

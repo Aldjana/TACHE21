@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../components/common/Button'
 import { Plus, Bell } from 'lucide-react'
 import SettingsHeader from '../../features/settings/components/SettingsHeader'
@@ -11,15 +12,20 @@ import BillingConditions from '../../features/settings/components/BillingConditi
 import { establishmentInfo, paymentModes, users, roomTypes, reservationSources, billingConditions } from '../../features/settings/data/settingsData'
 
 const Settings = () => {
+  const navigate = useNavigate()
+
+  const handleNewReservation = () => {
+    navigate('/reservations/new')
+  }
+
   return (
     <div className="space-y-6">
       {/* Header */}
-     
 
       {/* Section Header */}
       <div className="flex items-center justify-between">
         <SettingsHeader />
-        <Button variant="primary" icon={Plus}>Nouvelle réservation</Button>
+        <Button variant="primary" icon={Plus} onClick={handleNewReservation}>Nouvelle réservation</Button>
       </div>
 
       {/* First Row: Establishment Info & Payment Modes */}
